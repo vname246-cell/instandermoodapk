@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instander 2025: The Definitive Legacy Guide</title>
+    <style>
+        :root {
+            /* MONOCHROME EDITORIAL PALETTE */
+            --bg-color: #ffffff;
+            --surface-color: #fcfcfc;
+            --text-primary: #000000;
+            --text-secondary: #4a4a4a;
+            --border-color: #e0e0e0;
+            --accent-black: #000000;
+            --accent-hover: #333333;
+            --danger: #d32f2f;
+            --success: #2e7d32;
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --container-width: 900px;
+            --shadow-subtle: 0 4px 20px rgba(0,0,0,0.04);
+            --shadow-hover: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* RESET & BASE */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(3rem, 5vw, 4.5rem); }
+        h2 { font-size: 2.2rem; margin-top: 4rem; padding-bottom: 1rem; border-bottom: 2px solid var(--accent-black); }
+        h3 { font-size: 1.6rem; margin-top: 2.5rem; }
+        
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); text-align: justify; }
+        
+        a { 
+            color: var(--accent-black); 
+            text-decoration: underline; 
+            text-decoration-thickness: 1px; 
+            text-underline-offset: 4px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        a:hover { background: var(--accent-black); color: #fff; text-decoration: none; }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-black);
+            padding: 4px 12px;
+            text-decoration: none;
+            color: var(--accent-black);
+        }
+        .logo:hover { background: var(--accent-black); color: #fff; }
+
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* HERO SECTION */
+        header {
+            padding: 180px 20px 100px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-weight: 400;
+        }
+
+        /* BUTTONS */
+        .btn-group { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-size: 0.9rem;
+            border: 1px solid var(--accent-black);
+            cursor: pointer;
+        }
+
+        .btn-primary { background: var(--accent-black); color: #fff; }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        .btn-outline { background: transparent; color: var(--accent-black); }
+        .btn-outline:hover { background: var(--accent-black); color: #fff; }
+
+        /* MAIN LAYOUT */
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+        
+        section { margin: 6rem 0; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        /* CARDS & GRID */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: var(--accent-black);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            background: #fff;
+        }
+
+        .card h4 { font-size: 1.2rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ALERTS */
+        .alert {
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-black);
+            background: #f9f9f9;
+        }
+        .alert-danger { border-color: var(--danger); background: #fff5f5; }
+        .alert-success { border-color: var(--success); background: #f1f8f1; }
+
+        /* TECHNICAL ACCORDIONS */
+        details {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        summary::after { content: '+'; font-weight: 300; font-size: 1.5rem; }
+        details[open] summary::after { content: '−'; }
+        details[open] .content {
+            padding-top: 1rem;
+            animation: fadeDown 0.4s ease;
+        }
+
+        @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CODE BLOCK */
+        pre {
+            background: #111;
+            color: #eee;
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+        }
+
+        /* TABLE */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        .comparison-table th, .comparison-table td {
+            text-align: left;
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comparison-table th { background: #f4f4f4; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
+
+        /* FOOTER */
+        footer {
+            margin-top: 8rem;
+            padding: 5rem 0;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        footer a { color: #888; text-decoration: none; margin: 0 1rem; font-size: 0.9rem; }
+        footer a:hover { color: #fff; }
+        
+        /* SCROLL BAR */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff; }
+        ::-webkit-scrollbar-thumb { background: #000; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">Instander.Doc</a>
+            <div class="nav-links">
+                <a href="#state-of-2025">Status 2025</a>
+                <a href="#features">Ghost Mode</a>
+                <a href="#developer-options">Dev Menu</a>
+                <a href="#security">Security</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="#download" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Get Info</a>
+        </div>
+    </nav>
+
+    <header>
+        <span style="display:inline-block; margin-bottom:1rem; padding:4px 12px; border:1px solid #ddd; border-radius:20px; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:#666;">Legacy Documentation • v17.2 / v18 Beta</span>
+        <h1>Instander 2025:<br>The Definitive Authority Guide To <a href="https://instanderaps.com/">Instander Latest Version</a></h1>
+        <p class="subtitle">
+            A comprehensive technical analysis of the most advanced Instagram modification in Android history. Unlocking Ghost Mode, Developer Options, and the future of the project.
+        </p>
+        <div class="btn-group">
+            <a href="#deep-dive" class="btn btn-primary">Start Reading</a>
+            <a href="#developer-options" class="btn btn-outline">Dev Codes</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section id="state-of-2025">
+            <h2>01. The State of Instander in 2025</h2>
+            <div class="alert alert-danger">
+                <strong>CRITICAL UPDATE (2025):</strong> Reports from the modding community suggest that Instander is currently in a state of "End of Life" (EOL) or indefinite hiatus.
+            </div>
+            <p>For five years, <strong>Instander</strong> stood as the undisputed king of Instagram modifications. Developed by the Russian programmer known as <em>TheDise</em>, it offered a clean, ad-free experience that mirrored the official app's stability while unlocking powerful features.</p>
+            <p>However, as of late 2024 and early 2025, updates have stalled. The developer has been silent, leading to widespread speculation about the project's future. Despite this, <strong>Instander v17.2</strong> remains the most stable "daily driver" for millions of users, while <strong>v18 Beta</strong> offers a glimpse into what could have been. This guide serves as the ultimate documentation for the legacy version that continues to power the underground Android community.</p>
+        </section>
+
+        <section id="deep-dive">
+            <h2>02. Core Architecture & Philosophy</h2>
+            <p>Unlike other "bloated" mods (like GBInstagram of the past), Instander was built on a philosophy of <strong>Minimalist Utility</strong>. It does not look like a mod. It looks exactly like Instagram.</p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h4>The "Clone" Architecture</h4>
+                    <p>Instander is available in two package formats:
+                    <br><br>
+                    <strong>1. Clone (com.instander.android):</strong> Can be installed alongside the official Instagram app. Ideal for managing two accounts simultaneously.
+                    <br>
+                    <strong>2. Unclone (com.instagram.android):</strong> Replaces the official app entirely. Required if you want integration with other apps (like Facebook) to recognize it as the "real" Instagram.</p>
+                </div>
+                <div class="card">
+                    <h4>The Ad-Block Logic</h4>
+                    <p>The core engine of Instander uses a sophisticated <strong>Request Interceptor</strong>. Before the app renders the Feed, Instander filters the JSON response from Instagram's servers. It identifies objects tagged as `is_sponsored: true` and removes them from the data stream before the UI even attempts to draw them. This results in a cleaner, faster, and battery-efficient experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>03. Deep Dive: Ghost Mode Technology</h2>
+            <p>The most sought-after feature of Instander is "Ghost Mode." While it feels like magic, it is built on simple API manipulation. Here is how the three pillars of Ghost Mode function technically.</p>
+
+            <details open>
+                <summary>1. Don't Mark Stories as Seen</summary>
+                <div class="content">
+                    <p>When you view a Story, the official app sends a `POST` request to the endpoint <code>/media/seen/</code>. Instander simply blocks this outgoing network request. You download and view the media, but the server never receives the confirmation packet. To the sender, you are invisible.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>2. Don't Mark Direct Messages as Read</summary>
+                <div class="content">
+                    <p>Similar to stories, DMs use a "Read Receipt" packet. Instander disables this trigger. You can read the message locally on your device, but the "Seen" status is suppressed until you manually choose to reply.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>3. Live Ghost Mode</summary>
+                <div class="content">
+                    <p>This feature allows you to join a Livestream without the "User has joined" announcement appearing in the chat. It creates a "Lurker" session where you receive the video stream but do not establish a presence in the viewer count list.</p>
+                </div>
+            </details>
+        </section>
+
+        <section id="quality">
+            <h2>04. The Quality Engine (HQ Media)</h2>
+            <p>Instagram is notorious for compressing images on Android devices far more aggressively than on iOS. Instander includes a "Quality Improvements" menu that forces the app to bypass these compression algorithms.</p>
+            
+            <h3>How Compression Override Works</h3>
+            <p>By default, Instagram for Android compresses uploaded photos to roughly <strong>1080px width</strong> and lowers the JPEG quality to <strong>70%</strong>. Instander modifies the <code>max_upload_width</code> parameter to <strong>2160px</strong> and sets compression quality to <strong>95%</strong>. </p>
+            
+            <div class="alert alert-success">
+                <strong>Pro Tip:</strong> To get the absolute best quality, disable "Data Saver" in the standard settings and enable "Photos in Max Quality" in Instander Settings > Quality Improvements.
+            </div>
+        </section>
+
+        <section id="developer-options">
+            <h2>05. The Developer Options Masterclass</h2>
+            <p>This is the secret weapon of Instander. The "Developer Options" (or <em>MobileConfig</em>) is a hidden internal menu used by Meta engineers to test new features. Instander unlocks this menu for you.</p>
+
+            <div class="card" style="background: #111; color: #fff; border: none;">
+                <h4 style="color: #fff;">How to Enable Developer Mode</h4>
+                <ol style="margin-left: 1.5rem; margin-top: 1rem; color: #ccc;">
+                    <li>Open Instander.</li>
+                    <li>Go to your Profile Page.</li>
+                    <li>Tap the "Menu" (Hamburger) icon > Instander Settings.</li>
+                    <li>Go to "Developer Mode" and toggle it <strong>ON</strong>.</li>
+                    <li>Tap "Get MobileConfig" to update the database.</li>
+                    <li><strong>Restart the App completely.</strong></li>
+                    <li><strong>THE TRICK:</strong> On the Home Feed, <strong>Long Press the Home Icon</strong> (bottom left) for 3 seconds.</li>
+                    <li>The "DevSettings" black screen will appear.</li>
+                </ol>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Top 5 Hidden Flags to Enable</h3>
+            <p>Inside the Dev Menu, go to "MetaConfig Settings & Overrides" and search for these flags to unlock superpowers:</p>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Search Term</th>
+                            <th>Value to Change</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>1080w</code></td>
+                            <td>Enable</td>
+                            <td>Forces Stories to upload in 1080p instead of standard low quality.</td>
+                        </tr>
+                        <tr>
+                            <td><code>panavision</code></td>
+                            <td>Enable</td>
+                            <td>Unlocks "Panavision" mode for ultra-wide cinematic viewing.</td>
+                        </tr>
+                        <tr>
+                            <td><code>comment_reshares</code></td>
+                            <td>Enable</td>
+                            <td>Allows you to reshare a specific comment to your story.</td>
+                        </tr>
+                        <tr>
+                            <td><code>clip_import</code></td>
+                            <td>Enable</td>
+                            <td>Unlocks new Reel editing tools usually reserved for iOS.</td>
+                        </tr>
+                        <tr>
+                            <td><code>direct_voice</code></td>
+                            <td>Enable</td>
+                            <td>Unlocks voice message playback speed controls (1.5x, 2x).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>06. Installation & Migration Guide</h2>
+            <p>Moving from official Instagram to Instander requires specific steps to avoid data loss or installation errors.</p>
+            
+            <h3>Step 1: Choose Your Edition</h3>
+            <ul>
+                <li><strong>Clone:</strong> Download this if you want to keep the original app installed. Package name: <code>com.instander.android</code>.</li>
+                <li><strong>Unclone:</strong> Download this for better system integration. Package name: <code>com.instagram.android</code>.</li>
+            </ul>
+
+            <h3>Step 2: The Clean Install Protocol</h3>
+            <ol>
+                <li><strong>Backup:</strong> Ensure you know your password. If you have 2FA enabled, have your backup codes ready.</li>
+                <li><strong>Uninstall:</strong> If choosing "Unclone," uninstall the official Instagram app.
+                <br><em>Note: If it is a system app (Samsung/Pixel), you must disable it via ADB.</em></li>
+                <li><strong>Install:</strong> Download the APK from a trusted repository. Tap to install.</li>
+                <li><strong>Permission:</strong> Allow "Install from Unknown Sources" when prompted.</li>
+            </ol>
+
+            <div class="alert alert-danger">
+                <strong>Warning:</strong> Do not download Instander from "Auto-Generated" APK sites. Only use the official Telegram channel or trusted mirrors (like TheDise.me archive). Fake versions often contain malware.
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2>07. The Ecosystem: Instander vs. The Rest</h2>
+            <p>With Instander potentially EOL, users are looking at alternatives. How do they stack up?</p>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Instander (Legacy)</th>
+                            <th>Honista (2025)</th>
+                            <th>AeroInsta</th>
+                            <th>Official App</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Stability</strong></td>
+                            <td>High (v17.2)</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>Very High</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ghost Mode</strong></td>
+                            <td>Yes</td>
+                            <td>Yes (Advanced)</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Downloads</strong></td>
+                            <td>Fast</td>
+                            <td>Fast + Magic Button</td>
+                            <td>Fast</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Customization</strong></td>
+                            <td>Minimal</td>
+                            <td>Extreme (Fonts/Themes)</td>
+                            <td>Themes Available</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ad-Block</strong></td>
+                            <td>Excellent</td>
+                            <td>Good</td>
+                            <td>Excellent</td>
+                            <td>None</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>08. Troubleshooting Database</h2>
+            <p>Common issues encountered by users and their solutions.</p>
+
+            <details>
+                <summary>Crash on Startup (Android 14/15)</summary>
+                <div class="content">
+                    <p>Instander v17.2 is based on an older Instagram base code. It may crash on newer Android OS versions. 
+                    <br><strong>Fix:</strong> Try installing <strong>Instander v18 Beta</strong>. If that fails, you must migrate to <strong>MyInsta</strong> or <strong>AeroInsta</strong> as they use newer base codes.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Cant Like or Comment (Action Blocked)</summary>
+                <div class="content">
+                    <p>This is not an app bug; it is an Instagram server-side flag.
+                    <br><strong>Fix:</strong> Log out. Uninstall Instander. Install official Instagram. Log in and use it for 24 hours. Once the "trust score" of your account resets, reinstall Instander.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Reels Download Button Missing</summary>
+                <div class="content">
+                    <p>Instander UI sometimes hides the button.
+                    <br><strong>Fix:</strong> Tap the "three dots" menu on the Reel. The download option is often nested inside that menu rather than displayed as an icon.</p>
+                </div>
+            </details>
+        </section>
+
+        <section id="security">
+            <h2>09. Security Analysis: Is it Safe?</h2>
+            <p>Safety is relative. Instander is closed-source software, meaning the code is not publicly auditable. However, <em>TheDise</em> built a reputation of trust over 5 years.</p>
+            
+            <h3>The Risks of Abandonware</h3>
+            <p>Since the project is no longer actively maintained (as of 2025):</p>
+            <ul>
+                <li><strong>Security Patches:</strong> The underlying Instagram base version is old. If a vulnerability was found in Instagram v250, Instander users are still vulnerable to it.</li>
+                <li><strong>Account Bans:</strong> Instagram's anti-bot detection gets smarter every year. Using an old "App Signature" (which Instander uses) makes you stand out to their algorithms.</li>
+            </ul>
+            <p><strong>Verdict:</strong> Use Instander for <strong>consumption</strong> (viewing, downloading). Avoid using it for aggressive automation (mass liking/following) to keep your account safe.</p>
+        </section>
+
+        <section id="faq">
+            <h2>10. Frequently Asked Questions</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Is Instander available for iOS?</h4>
+                    <p><strong>No.</strong> iOS does not support APK files. The closest alternative is using a sideloaded IPA like <em>Rocket for Instagram</em> via AltStore, but Instander specifically is Android-exclusive.</p>
+                </div>
+                <div class="card">
+                    <h4>Will I get banned?</h4>
+                    <p>Ban risk is low but never zero. Thousands of users use it daily without issue. However, using "Ghost Mode" features aggressively can sometimes flag your account for "suspicious activity."</p>
+                </div>
+                <div class="card">
+                    <h4>Why is v18 still in Beta?</h4>
+                    <p>Development halted before v18 could reach stability. The "Beta" version is functional but lacks some features (like Monet theme support) and has bugs on certain devices.</p>
+                </div>
+                <div class="card">
+                    <h4>How do I update?</h4>
+                    <p>Instander has an OTA (Over The Air) updater built-in settings. However, since the servers are largely inactive, you must manually check Telegram channels or trusted repositories for any community patches.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h3 style="color: #fff; margin-bottom: 2rem;">INSTANDER.DOC</h3>
+                <p style="opacity: 0.6; max-width: 600px; margin: 0 auto 2rem auto;">
+                    The definitive archive for the Instander project. Documenting the history and technical specifications of the world's favorite social media modification.
+                </p>
+                <div style="margin-bottom: 3rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">DMCA</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p style="font-size: 0.8rem; opacity: 0.4;">
+                    Disclaimer: This website is for educational and archival purposes only. We are not affiliated with Meta, Instagram, or TheDise. We do not host APK files.
+                </p>
+                <p style="font-size: 0.8rem; opacity: 0.4;">© 2025 Authority Archives.</p>
+                <p><a href="https://vscomodedapk-tjv6.vercel.app/" rel="nofollow ugc" target="_blank">Vercel.App</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)";
+                nav.style.background = "rgba(255, 255, 255, 0.98)";
+            } else {
+                nav.style.boxShadow = "none";
+                nav.style.background = "rgba(255, 255, 255, 0.96)";
+            }
+        });
+
+        // Smooth Scroll for Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
